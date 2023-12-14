@@ -7,6 +7,7 @@ import TeamSwitcher from "@/components/team-switcher";
 import { Search } from "@/components/search";
 import { UserNav } from "@/components/user-nav";
 import { MainNav } from "@/components/main-nav";
+import { Footer } from "@/components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -35,6 +36,7 @@ export default function RootLayout({
           </div>
           {children}
         </div>
+      <Footer />
       </body>
     </html>
   );

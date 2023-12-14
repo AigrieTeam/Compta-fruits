@@ -1,11 +1,16 @@
+import { LoginButton } from "@/components/auth/login-button";
+import { LogOutButton } from "@/components/auth/logout-button";
+import { Footer } from "@/components/footer";
+import { getAuthSession } from "@/lib/auth";
 import Link from "next/link";
 
-export default function Home() {
+export default async function Home() {
+  const session = await getAuthSession()
+
   const links = [
     { name: "About", href: "#" },
     { name: "Projects", href: "#" },
     { name: "Contact", href: "#" },
-    { name: "Login", href: "#" },
   ];
 
   return (
@@ -24,6 +29,7 @@ export default function Home() {
               {link.name}
             </Link>
           ))}
+          {session ? <LogOutButton /> : <LoginButton />}
         </nav>
       </header>
       <main className="flex-1">
@@ -38,24 +44,13 @@ export default function Home() {
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Phasellus nec iaculis mauris.
                 </p>
+                <pre>{JSON.stringify(session, null, 2)}</pre>
               </div>
             </div>
           </div>
         </section>
       </main>
-      <footer className="flex w-full shrink-0 flex-col items-center gap-2 border-t px-4 py-6 sm:flex-row md:px-6">
-        <p className="text-xs text-gray-500 dark:text-gray-400">
-          © Compta Fruits. All rights reserved.
-        </p>
-        <nav className="flex gap-4 sm:ml-auto sm:gap-6">
-          <Link className="text-xs underline-offset-4 hover:underline" href="#">
-            Terms of Service
-          </Link>
-          <Link className="text-xs underline-offset-4 hover:underline" href="#">
-            Privacy Policy
-          </Link>
-        </nav>
-      </footer>
+      <Footer />
     </div>
   );
 }
