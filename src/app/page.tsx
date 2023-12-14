@@ -1,11 +1,10 @@
 import { LoginButton } from "@/components/auth/login-button";
 import { LogOutButton } from "@/components/auth/logout-button";
-import { Footer } from "@/components/footer";
 import { getAuthSession } from "@/lib/auth";
 import Link from "next/link";
 
 export default async function Home() {
-  const session = await getAuthSession()
+  const session = await getAuthSession();
 
   const links = [
     { name: "About", href: "#" },
@@ -33,7 +32,7 @@ export default async function Home() {
           {session ? <LogOutButton /> : <LoginButton />}
         </nav>
       </header>
-      <main className="flex-1">
+      <div className="flex-1">
         <section className="w-full py-12 md:py-24 lg:py-32 xl:py-72">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center space-y-4 text-center">
@@ -50,8 +49,7 @@ export default async function Home() {
             </div>
           </div>
         </section>
-      </main>
-      <Footer />
+      </div>
     </div>
   );
 }

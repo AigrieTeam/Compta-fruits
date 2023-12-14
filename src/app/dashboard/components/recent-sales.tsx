@@ -39,7 +39,7 @@ export default function RecentSales() {
       {details.map((detail) => (
         <div key={detail.email} className="flex items-center">
           <Avatar className="h-9 w-9">
-            <AvatarImage src={detail.avatar} alt="Avatar" />
+            {/* <AvatarImage src={detail.avatar} alt="Avatar" /> */}
             <AvatarFallback>
               {detail.name.split(" ").map((n) => n[0])}
             </AvatarFallback>

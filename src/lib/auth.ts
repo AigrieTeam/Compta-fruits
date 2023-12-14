@@ -1,4 +1,4 @@
-import { authConfig } from "@/pages/api/auth/[...nextauth]"
+import { authConfig } from "@/app/api/auth/[...nextauth]/route"
 import { getServerSession } from "next-auth"
 
 export const getAuthSession = () => {
