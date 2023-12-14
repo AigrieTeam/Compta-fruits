@@ -6,7 +6,7 @@ export const LoginButton = () => {
   return (
     <a
       onClick={async () => {
-        await signIn();
+        await signIn("google", { callbackUrl: "/dashboard" });
       }}
       className="cursor-pointer text-sm font-medium underline-offset-4 hover:underline"
     >

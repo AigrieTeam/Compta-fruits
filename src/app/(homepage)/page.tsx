@@ -11,6 +11,7 @@ export default async function Home() {
     { name: "About", href: "#" },
     { name: "Projects", href: "#" },
     { name: "Contact", href: "#" },
+    { name: "Dashboard", href: "dashboard" },
   ];
 
   return (
